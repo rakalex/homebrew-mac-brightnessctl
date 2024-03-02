@@ -8,9 +8,22 @@ class MacBrightnessctl < Formula
 
   livecheck do
     url :stable
-    strategy :git do |tags|
-      filter_map { |tag| tag[/^(\d{4}-\d{2}-\d{2})$/i, 1]&.gsub(/\D/, "") }.compact
+    regex(/^example[._-]v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_releases do |json, regex|
+      json.map do |release|
+        next if release["draft"] || release["prerelease"]
+
+        match = release["tag_name"]&.match(regex)
+        next if match.blank?
+
+        match[1]
+      end
     end
+  end
+
+  livecheck do
+    url "https://github.com/rakalex/mac-brightnessctl.git"
+    regex(/^(\d+(?:\.\d+)+)$/i)
   end
 
   depends_on :macos
