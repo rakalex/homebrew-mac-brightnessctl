@@ -8,10 +8,10 @@ class MacBrightnessctl < Formula
 
   livecheck do
     url :stable
-    regex(/^example[._-]v?(\d+(?:\.\d+)+)$/i)
+    regex(/^mac-brightnessctl[._-]v?(\d+(?:\.\d+)+)$/i)
     strategy :github_latest do |json, regex|
       match = json["tag_name"]&.match(regex)
-        next if match.blank?
+      next if match.blank?
   
       match[1]
     end
