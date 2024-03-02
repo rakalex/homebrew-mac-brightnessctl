@@ -3,15 +3,15 @@ class MacBrightnessctl < Formula
   homepage "https://github.com/rakalex/mac-brightnessctl"
   url "https://github.com/rakalex/mac-brightnessctl/archive/refs/tags/0.1.tar.gz"
   sha256 "dd6a7a7b0e5d6a06ecdc7d47b038b307b6a3228d9d2271cabd9c273220d19850"
-  head "https://github.com/rakalex/mac-brightnessctl.git", branch: "main"
   license "MIT"
+  head "https://github.com/rakalex/mac-brightnessctl.git", branch: "main"
 
   livecheck do
     url :stable
     regex(/^example[._-]v?(\d+(?:\.\d+)+)$/i)
     strategy :github_latest do |json, regex|
-    match = json["tag_name"]&.match(regex)
-      next if match.blank?
+      match = json["tag_name"]&.match(regex)
+        next if match.blank?
   
       match[1]
     end
