@@ -12,6 +12,7 @@ class MacBrightnessctl < Formula
     strategy :github_latest do |json, regex|
       match = json["tag_name"]&.match(regex)
       next if match.blank?
+      
       match[1]
     end
   end
