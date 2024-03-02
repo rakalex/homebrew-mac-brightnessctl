@@ -2,7 +2,7 @@ class MacBrightnessctl < Formula
   desc "CLI tool for controlling keyboard backlight brightness on Mac"
   homepage "https://github.com/rakalex/mac-brightnessctl"
   url "https://github.com/rakalex/mac-brightnessctl/archive/refs/tags/0.1.tar.gz"
-  sha256 "dd6a7a7b0e5d6a06ecdc7d47b038b307b6a3228d9d2271cabd9c273220d19850"
+  sha256 "d1e9e3fa81af7d3ff566953e5f42ccad384457c63285996cda7aa14a0c1688d0"
   license "MIT"
   head "https://github.com/rakalex/mac-brightnessctl.git", branch: "main"
 
